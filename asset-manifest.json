@@ -1,14 +1,14 @@
 {
-  "main.css": "/static/css/main.39fe9b9d.chunk.css",
-  "main.js": "/static/js/main.6216ace1.chunk.js",
-  "main.js.map": "/static/js/main.6216ace1.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.fdfcfda2.js",
-  "runtime~main.js.map": "/static/js/runtime~main.fdfcfda2.js.map",
-  "static/js/2.44867a7a.chunk.js": "/static/js/2.44867a7a.chunk.js",
-  "static/js/2.44867a7a.chunk.js.map": "/static/js/2.44867a7a.chunk.js.map",
-  "index.html": "/index.html",
-  "precache-manifest.029773f5ab18dc648628123219275eeb.js": "/precache-manifest.029773f5ab18dc648628123219275eeb.js",
-  "service-worker.js": "/service-worker.js",
-  "static/css/main.39fe9b9d.chunk.css.map": "/static/css/main.39fe9b9d.chunk.css.map",
-  "static/media/chuck-logo.png": "/static/media/chuck-logo.068754a1.png"
+  "main.css": "/seja-um-guia-front/static/css/main.39fe9b9d.chunk.css",
+  "main.js": "/seja-um-guia-front/static/js/main.8b87d3f8.chunk.js",
+  "main.js.map": "/seja-um-guia-front/static/js/main.8b87d3f8.chunk.js.map",
+  "runtime~main.js": "/seja-um-guia-front/static/js/runtime~main.e225d955.js",
+  "runtime~main.js.map": "/seja-um-guia-front/static/js/runtime~main.e225d955.js.map",
+  "static/js/2.44867a7a.chunk.js": "/seja-um-guia-front/static/js/2.44867a7a.chunk.js",
+  "static/js/2.44867a7a.chunk.js.map": "/seja-um-guia-front/static/js/2.44867a7a.chunk.js.map",
+  "index.html": "/seja-um-guia-front/index.html",
+  "precache-manifest.a15ea8b077a581c5336e318cbe49c8ff.js": "/seja-um-guia-front/precache-manifest.a15ea8b077a581c5336e318cbe49c8ff.js",
+  "service-worker.js": "/seja-um-guia-front/service-worker.js",
+  "static/css/main.39fe9b9d.chunk.css.map": "/seja-um-guia-front/static/css/main.39fe9b9d.chunk.css.map",
+  "static/media/chuck-logo.png": "/seja-um-guia-front/static/media/chuck-logo.068754a1.png"
 }
