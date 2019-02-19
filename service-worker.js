@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/seja-um-guia-front/precache-manifest.235103564454be184350367972e3e2dc.js"
+  "/seja-um-guia-front/precache-manifest.8cb38c99fe03fa5ecadc38240fcccdff.js"
 );
 
 workbox.clientsClaim();
