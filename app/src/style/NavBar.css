@@ -1,0 +1,41 @@
+.Root-div {
+    flex-grow: 1;
+}
+
+.Logo {
+    /*animation: Logo-spin infinite 3s linear;*/
+    /*animation-direction: alternate-reverse;*/
+    height: 12vmin;
+    pointer-events: none;
+    /*margin-bottom: 25px;*/
+    /*margin-top: 5px;*/
+    /*margin-left: -12px;*/
+    /*margin-right: 20px;*/
+    margin: 5px;
+}
+
+.Git-Logo {
+    height: 5vmin;
+    margin: 10px;
+}
+
+.Toolbar-left-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.Toolbar {
+    justify-content: space-between;
+}
+
+@keyframes Logo-spin {
+    from {
+        transform: rotate(-15deg);
+    }
+    to {
+        transform: rotate(15deg);
+    }
+}

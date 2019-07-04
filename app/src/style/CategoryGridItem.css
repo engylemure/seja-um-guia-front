@@ -1,0 +1,12 @@
+.Card {
+    padding: 15px;
+}
+.Icon {
+    color: rgba(255, 255, 255, 0.54);
+}
+
+.Image {
+    height: 30vmin;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}

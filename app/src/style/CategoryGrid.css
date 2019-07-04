@@ -1,0 +1,13 @@
+.Grid-div-root {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow: hidden;
+    text-transform: capitalize;
+}
+
+.Loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
