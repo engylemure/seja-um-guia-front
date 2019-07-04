@@ -1,5 +1,5 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar'
+import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import ChuckInfo from './ChuckInfo';
 import chuckLogo from './../assets/chuck-logo.png';
@@ -15,7 +15,7 @@ const NavBar = ({ children }) => {
             <img src={chuckLogo} className="Logo" alt="logo" />
           </div>
           <div className={'Toolbar-left-container'}>
-            { children }
+            {children}
             <a href={'https://github.com/engylemure/seja-um-guia-front'}>
               <img src={gitLogo} alt="git-logo" className={'Git-Logo'} />
             </a>

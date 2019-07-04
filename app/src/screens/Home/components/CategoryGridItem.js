@@ -50,12 +50,12 @@ const CategoryGridItem = props => {
   );
 
   const [jokeIndex, changeJokeIndex] = useState(0);
-  
+
   const { getRandomJokeFromApi } = bindActionCreators(
     ActionCreators,
     useDispatch()
   );
-  
+
   const [{ loading, error }, localDispatch] = useReducer(
     localReducer,
     localInitialState
@@ -74,9 +74,9 @@ const CategoryGridItem = props => {
     if (jokesFromCategory) {
       let newIndex = jokeIndex + 1;
       if (newIndex >= jokesFromCategory.length) {
-        newIndex = 0
-      }  
-      changeJokeIndex(newIndex)
+        newIndex = 0;
+      }
+      changeJokeIndex(newIndex);
     }
   };
 
@@ -98,10 +98,7 @@ const CategoryGridItem = props => {
         <Joke joke={jokesFromCategory[jokeIndex]} loading={loading} />
       </CardContent>
       <CardActions>
-        <Button
-          disabled={loading}
-          onClick={_getNewJoke}
-        >
+        <Button disabled={loading} onClick={_getNewJoke}>
           Update Joke
         </Button>
         <Button

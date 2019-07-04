@@ -7,7 +7,7 @@ import './../../style/Home.css';
 const Home = () => (
   <div>
     <NavBar>
-      <CategoriesMenu/>
+      <CategoriesMenu />
     </NavBar>
     <div className="App">
       <CategoryGrid />

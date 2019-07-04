@@ -6,13 +6,18 @@ import Badge from '@material-ui/core/Badge';
 import Typography from '@material-ui/core/es/Typography/Typography';
 import { useSelector } from 'react-redux';
 
-const _selector = ({ categories, jokes: { byCategory }}) => {
-  return { categories: categories.map(category => ({ name: category, numberOfJokes: (byCategory[category] || []).length })) }
-}
+const _selector = ({ categories, jokes: { byCategory } }) => {
+  return {
+    categories: categories.map(category => ({
+      name: category,
+      numberOfJokes: (byCategory[category] || []).length
+    }))
+  };
+};
 
-const CategoriesMenu = (props) => {
+const CategoriesMenu = props => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const { categories } = useSelector(_selector)
+  const { categories } = useSelector(_selector);
   return (
     <div>
       <Button
@@ -32,10 +37,7 @@ const CategoriesMenu = (props) => {
         {categories.map(({ name, numberOfJokes }) => {
           return (
             <MenuItem key={name} onClick={() => setAnchorEl(null)}>
-              <Badge
-                color="primary"
-                badgeContent={numberOfJokes}
-              >
+              <Badge color="primary" badgeContent={numberOfJokes}>
                 <Typography>{name}</Typography>
               </Badge>
             </MenuItem>
