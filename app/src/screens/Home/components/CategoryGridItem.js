@@ -6,11 +6,15 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import IconButton from '@material-ui/core/IconButton';
 import Button from './../../../components/Button';
 import Typography from '@material-ui/core/Typography';
+import { ChevronLeftRounded, ChevronRightRounded } from '@material-ui/icons';
 import { bindActionCreators } from 'redux';
 import ActionCreators from '../../../redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
+import Badge from '@material-ui/core/Badge';
+
 import {
   reducer as localReducer,
   initialState as localInitialState,
@@ -31,17 +35,7 @@ const _selector = ({ state, category }) => {
 const Joke = ({
   joke: { value = 'Error no Joke could be Find' } = {},
   loading
-}) => {
-  if (loading) {
-    return (
-      <div>
-        <LinearProgress />
-      </div>
-    );
-  } else {
-    return <Typography component="p">{value}</Typography>;
-  }
-};
+}) => (<Typography component="p">{value}</Typography>);
 
 const CategoryGridItem = props => {
   const { category } = props;
@@ -61,16 +55,19 @@ const CategoryGridItem = props => {
     localInitialState
   );
 
-  const _getNewJoke = () =>
-    getRandomJokeFromApi({
+  const _getNewJoke = async () =>{
+    await getRandomJokeFromApi({
       category,
       onStart: () =>
         localDispatch({ type: localReducerTypes.SET_LOADING, loading: true }),
-      onFinish: ({ error }) =>
+      onFinish: ({ error }) => {
         localDispatch({ type: localReducerTypes.SET_LOADING, loading: false })
-    });
+        localDispatch({ type: localReducerTypes.SET_ERROR, error })
+      }
+    })
+  }
 
-  const _onChangeIndex = () => {
+  const _onForwardIndex = () => {
     if (jokesFromCategory) {
       let newIndex = jokeIndex + 1;
       if (newIndex >= jokesFromCategory.length) {
@@ -78,37 +75,58 @@ const CategoryGridItem = props => {
       }
       changeJokeIndex(newIndex);
     }
-  };
+  }
+
+  const _onBackIndex = () => {
+    if (jokesFromCategory) {
+      let newIndex = jokeIndex - 1;
+      if (newIndex < 0) {
+        newIndex = jokesFromCategory.length - 1;
+      }
+      changeJokeIndex(newIndex);
+    }
+  }
 
   useEffect(() => {
     _getNewJoke();
   }, []);
 
+  useEffect(() => {
+    if (jokesFromCategory.length > 0) {
+      changeJokeIndex(jokesFromCategory.length - 1 )
+    }
+  }, [jokesFromCategory.length])
+
   return (
-    <Card className={'Card'}>
-      <CardMedia
-        className={'Image'}
-        image={`https://source.unsplash.com/400x240/?${category}`}
-        title={category}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
-          {category.replace(/\b\w/g, l => l.toUpperCase())}
-        </Typography>
-        <Joke joke={jokesFromCategory[jokeIndex]} loading={loading} />
-      </CardContent>
-      <CardActions>
-        <Button disabled={loading} onClick={_getNewJoke}>
-          Update Joke
-        </Button>
-        <Button
-          disabled={loading || jokesFromCategory.length === 1}
-          onClick={_onChangeIndex}
-        >
-          Change From History
-        </Button>
-      </CardActions>
-    </Card>
+    <Badge color="primary" badgeContent={jokesFromCategory.length} className={'Badge'} >
+      <Card className={'Card'}>
+        <CardMedia
+          className={'Image'}
+          image={`https://source.unsplash.com/400x240/?${category}`}
+          title={category}
+        />
+        <CardContent className={"CardContent"}>
+          <div className={"LoadingContainer"}>
+            { loading && <LinearProgress />}
+          </div>
+          <Typography gutterBottom variant="h5" component="h2">
+            {category.replace(/\b\w/g, l => l.toUpperCase())}
+          </Typography>
+          <Joke joke={jokesFromCategory[jokeIndex]} loading={loading} />
+        </CardContent>
+        <CardActions className={'CardActions'}>
+          <IconButton onClick={_onBackIndex}>
+            <ChevronLeftRounded />
+          </IconButton>
+          <Button disabled={loading} onClick={_getNewJoke}>
+            Get New Joke
+          </Button>
+          <IconButton onClick={_onForwardIndex}>
+            <ChevronRightRounded/>
+          </IconButton>
+        </CardActions>
+      </Card>
+    </Badge>
   );
 };
 
